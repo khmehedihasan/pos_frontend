@@ -1,16 +1,11 @@
 import React from 'react' ;
-import SideBar from '../components/SideBar';
+import Layout from '../components/Layout';
 
 function Home(){
     return(
-        <>
-            <SideBar />
-            <div className="w-full h-screen bg-slate-100 mx-auto">
-               <div>
-
-               </div>
-            </div>
-        </>
+        <Layout>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptatum aspernatur laboriosam repellendus asperiores quas suscipit ullam et assumenda, inventore voluptatibus vel iste necessitatibus aliquam quam temporibus eligendi id dicta. </h1>
+        </Layout>
     )
 }
 

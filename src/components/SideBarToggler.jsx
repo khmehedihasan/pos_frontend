@@ -16,7 +16,7 @@ function SideBarToggler({data, index, activeIndex, setActive, setShow}){
 
     return(
         <div className={` ease-in-out duration-700 ${(activeIndex === index)?'relative pb-3 bg-black before:absolute before:w-1 before:h-full before:bg-blue-300 before:rounded-tr-md before:rounded-br-md':''}`}>
-        <h1 onClick={()=> active()} className={`w-full text-lg pl-6 cursor-pointer hover:bg-black ${(activeIndex === index)? 'text-blue-300 p-1':'p-2 text-white hover:text-gray-400'}`}>{data.icon} {data.title}</h1>
+        <div onClick={()=> active()} className={`w-full text-lg pl-6 cursor-pointer hover:bg-black ${(activeIndex === index)? 'text-blue-300 p-1':'p-2 text-white hover:text-gray-400'}`}>{data.icon} {data.title}</div>
         <div className={`ease-in-out duration-700 ${(activeIndex === index)? 'h-max' :'hidden' } w-full `}>
             {
                 data.links.map((link,indx)=>{

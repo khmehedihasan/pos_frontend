@@ -4,6 +4,19 @@ import { NavLink } from 'react-router-dom';
 function Nav({setShow}){
 
     const [show1, setShow1] = useState('hidden');
+    const [show2, setShow2] = useState({status:true});
+
+
+    function wait(){
+        setTimeout(() => {
+            if(show2.status){
+                setShow1('hidden');
+                setShow2({status:true})
+            }
+
+        },1000);
+        
+    }
 
     const [clickedOutside, setClickedOutside] = useState(false);
     const myRef = useRef();
@@ -11,7 +24,6 @@ function Nav({setShow}){
     useEffect(()=>{
         if(clickedOutside){
             setShow1('hidden')
-            console.log(show1)
         }
       
     },[clickedOutside]);
@@ -44,14 +56,14 @@ function Nav({setShow}){
                     <div className="absolute top-0 right-0 w-2 h-2  sm:w-3 sm:h-3 rounded-full bg-red-600 after:absolute after:top-0 after:left-0  after:w-2 after:h-2 sm:after:w-3 sm:after:h-3 after:rounded-full after:bg-red-600 after:animate-ping"></div>
                 </div>
 
-                <div onMouseEnter={()=> setShow1('block')} onClick={()=> {setShow1('block'); setClickedOutside(false)}} className=" w-max h-20 flex items-center">
+                <div onMouseEnter={()=> setShow1('block')} onMouseLeave={()=>{ wait(); show2.status = true}}  onClick={()=> {setShow1('block'); setClickedOutside(false)}} className=" w-max h-20 flex items-center">
                     <div className=" w-10 h-10 sm:w-14 sm:h-14 bg-gray-500 rounded-full bg-[url('../images/user.jpg')] bg-center bg-cover bg-no-repeat"></div>
                     <div className="flex flex-col items-start pl-2">
                         <h3 className=" text-xs sm:text-sm text-gray-500 font-bold">MD. Mehedi Hasan</h3>
                         <h4 className="text-xs text-gray-400">Admin</h4>
                     </div>
                 </div>
-                <div onMouseLeave={()=> setShow1('hidden')} ref={myRef} className={show1 + " w-52 h-60 bg-white  absolute top-20 mt-1 right-6"}>
+                <div onMouseLeave={()=> setShow1('hidden')} onMouseEnter={()=> show2.status = false} ref={myRef} className={show1 + " w-52 h-60 bg-white  absolute top-20 mt-1 right-6"}>
                     <div className=" w-full h-24 p-4 bg-dark-blue-1 before:w-4 before:h-4 before:absolute before:-top-2 before:right-5 before:bg-dark-blue-1 before:rotate-45">
                         <h4 className="text-sm text-white">Admin</h4>
                         <h3 className=" text-md sm:text-lg text-white font-bold">MD. Mehedi Hasan</h3>

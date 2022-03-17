@@ -5,7 +5,7 @@ function Layout({children}){
     return(
         <>
             <SideBar />
-            <div className="w-full h-screen bg-slate-100 mx-auto">
+            <div className="w-full float-right md:w-3/4 lg:w-4/5 xl:w-10/12 h-screen-1 overflow-auto bg-slate-50 mx-auto">
                {children}
             </div>
         </>

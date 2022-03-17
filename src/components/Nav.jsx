@@ -42,7 +42,7 @@ function Nav({setShow}){
     
 
     return(
-        <nav className=" z-0 float-left w-full md:w-3/4 lg:w-4/5 xl:w-10/12 flex items-center justify-between px-6  bg-white h-20 border-b-2">
+        <nav className=" z-0 float-left w-full md:w-3/4 lg:w-4/5 xl:w-10/12 flex items-center justify-between px-6  bg-white h-screen-2 border-b-2">
             <div>
                 <span onClick={()=> setShow("-ml-0")} className=" block md:hidden"><i className="fa-solid fa-bars text-2xl"></i></span>
             </div>

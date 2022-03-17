@@ -21,7 +21,7 @@ function SideBarToggler({data, index, activeIndex, setActive, setShow}){
             {
                 data.links.map((link,indx)=>{
                     return(
-                        <NavLink to="/" key={indx} onClick={()=> setShow('-ml-80')} className=" no-underline text-gray-400 hover:text-blue-300 block pl-11" >{link}</NavLink>
+                        <NavLink to={link.link} key={indx} onClick={()=> setShow('-ml-80')} className=" no-underline text-gray-400 hover:text-blue-300 block pl-11" >{link.name}</NavLink>
                     )
                 })
             }

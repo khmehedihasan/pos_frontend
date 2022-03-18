@@ -63,7 +63,7 @@ function Nav({setShow}){
                         <h4 className="text-xs text-gray-400">Admin</h4>
                     </div>
                 </div>
-                <div onMouseLeave={()=> setShow1('hidden')} onMouseEnter={()=> show2.status = false} ref={myRef} className={show1 + " w-52 h-60 bg-white  absolute top-20 mt-1 right-6"}>
+                <div onMouseLeave={()=> setShow1('hidden')} onMouseEnter={()=> show2.status = false} ref={myRef} className={show1 + " z-10 w-52 h-60 bg-white  absolute top-20 mt-1 right-6"}>
                     <div className=" w-full h-24 p-4 bg-dark-blue-1 before:w-4 before:h-4 before:absolute before:-top-2 before:right-5 before:bg-dark-blue-1 before:rotate-45">
                         <h4 className="text-sm text-white">Admin</h4>
                         <h3 className=" text-md sm:text-lg text-white font-bold">MD. Mehedi Hasan</h3>

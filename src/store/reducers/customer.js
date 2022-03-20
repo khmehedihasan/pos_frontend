@@ -1,9 +1,9 @@
-const initialState = { allCustomer:[], singleCustomer:{} };
+const initialState = [] ;
 
 function customer(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_CUSTOMER' : 
-            state.allCustomer = action.data;
+            state = action.data;
             return state;
            
 

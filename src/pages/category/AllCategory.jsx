@@ -12,7 +12,7 @@ function AllCategory(){
     return(
         <Layout>
 
-            <Table to="/" name="Add Category" rowNames={["#","Name","Description","Poto","Actions"]}>
+            <Table to="/addCategory" name="Add Category" rowNames={["#","Name","Description","Poto","Actions"]}>
                 {
                     category.map(({name, description, img}, index)=>{
                         return(
@@ -24,7 +24,6 @@ function AllCategory(){
                                 <Td>
                                     <View to="/" />
                                     <Edit to="/" />
-                                    <Return to="/" />
                                     <Delete />
                                 </Td>
                             </Tr>

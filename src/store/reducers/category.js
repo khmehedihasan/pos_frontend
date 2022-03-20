@@ -1,5 +1,4 @@
-// const initialState = { allCategory:[], singleCategory:{} };
-const initialState = []
+const initialState = [] ;
 
 function category(state = initialState, action){
     switch(action.type){

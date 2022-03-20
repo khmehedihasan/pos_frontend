@@ -1,9 +1,10 @@
-const initialState = { allCategory:[], singleCategory:{} };
+// const initialState = { allCategory:[], singleCategory:{} };
+const initialState = []
 
 function category(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_CATEGORY' : 
-            state.allCategory = action.data;
+            state = action.data;
             return state;
            
 

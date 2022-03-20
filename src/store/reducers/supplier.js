@@ -1,9 +1,9 @@
-const initialState = { allSupplier:[], singleSupplier:{} };
+const initialState = [] ;
 
 function supplier(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_SUPPLIER' : 
-            state.allSupplier = action.data;
+            state = action.data;
             return state;
            
 

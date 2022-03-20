@@ -1,9 +1,9 @@
-const initialState = { allSale:[], singleSale:{} };
+const initialState = [] ;
 
 function sale(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_SALE' : 
-            state.allSale = action.data;
+            state = action.data;
             return state;
            
 

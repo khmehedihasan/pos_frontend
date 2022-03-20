@@ -1,9 +1,9 @@
-const initialState = { allProduct:[],singleProduct:{} };
+const initialState = [] ;
 
 function product(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_PRODUCT' : 
-            state.allProduct = action.data;
+            state = action.data;
             return state;
 
         default : return state;

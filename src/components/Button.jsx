@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Button1({name, click}){
     return(
@@ -6,4 +7,34 @@ function Button1({name, click}){
     )
 }
 
-export { Button1 };
+function View({to}){
+    return(
+        <Link to={to}>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['View'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-eye"></i></button>
+        </Link>
+    );
+}
+
+function Edit({to}){
+    return(
+        <Link to={to}>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['Edit'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-pen-to-square"></i></button>
+        </Link>
+    );
+}
+
+function Return({to}){
+    return(
+        <Link to={to}>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['Return'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-rotate-left"></i></button>
+        </Link>
+    );
+}
+
+function Delete({click}){
+    return(
+        <button onClick={click} className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['Delete'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-trash"></i></button>
+    );
+}
+
+export { Button1, View, Edit, Return, Delete };

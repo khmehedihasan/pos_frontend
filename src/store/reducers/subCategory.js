@@ -1,9 +1,9 @@
-const initialState = { allSubCategory:[], singleCategory:{} };
+const initialState = [] ;
 
 function subCategory(state = initialState, action){
     switch(action.type){
         case 'ADD_ALL_SUB_CATEGORY' : 
-            state.allSubCategory = action.data;
+            state = action.data;
             return state;
            
 

@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import AddCategory from './pages/category/AddCategory';
-import Home from './pages/Home';
 import useFirstLoad from './hooks/useFirstLoad';
+import Home from './pages/Home';
+import AddCategory from './pages/category/AddCategory';
+import AllCategory from './pages/category/AllCategory';
+
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/addCategory" element={ <AddCategory />} />
+        <Route path="/allCategory" element={ <AllCategory />} />
       </Routes>
     </>
   );

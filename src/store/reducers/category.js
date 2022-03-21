@@ -18,6 +18,15 @@ function category(state = initialState, action){
             });
             state = ndata;
             return state;
+
+        case 'UPDATE_CATEGORY' : 
+            
+            const edata = state.filter((data)=>{
+                return(data._id !== action.data.id);
+            });
+            const pdata = [...edata,action.data.data];
+            state = pdata;
+            return state;
            
 
         default : return state;

@@ -1,20 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Delete, Edit, Return, View } from '../../components/Button';
+import React, {  useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Delete, Edit, View } from '../../components/Button';
 import Layout from '../../components/Layout';
 import Table, { Tr, Td, Img } from '../../components/Table';
+import url from '../../url'
+import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
+import { REMOVE_CATEGORY } from '../../store/actions/category';
 
 
 function AllCategory(){
 
+    const [alert, setAlert] = useState([]);
     const category = useSelector((state)=>state.category);
+    const dispatch = useDispatch();
+
+    function delet(id){
+        fetch(`${url}/category/${id}`,{method:'delete'}).then((data)=>data.json()).then((data)=>{
+            if(data.status === true){
+                dispatch(REMOVE_CATEGORY(id))
+                setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
+            }else{
+                setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);
+            }
+        });
+    }
 
     return(
         <Layout>
-
+            <AlertContainer>
+                {alert}
+            </AlertContainer>
             <Table to="/addCategory" name="Add Category" rowNames={["#","Name","Description","Poto","Actions"]}>
                 {
-                    category.map(({name, description, img}, index)=>{
+                    category.map(({_id, name, description, img}, index)=>{
                         return(
                             <Tr key={index}>
                                 <Td>{index+1}</Td>
@@ -24,7 +42,7 @@ function AllCategory(){
                                 <Td>
                                     <View to="/" />
                                     <Edit to="/" />
-                                    <Delete />
+                                    <Delete id={_id} click={delet} />
                                 </Td>
                             </Tr>
                         );

@@ -9,8 +9,8 @@ const data = [
         title:'Category',
         icon: <i className="fa-brands fa-buffer pr-2"></i>,
         links:[
-            {name:'All Category',link:'/allCategory'},
-            {name:'Add Category',link:'/addCategory'}
+            {name:'All Category',link:'/category'},
+            {name:'Add Category',link:'/category/add'}
         ]
     },
     {

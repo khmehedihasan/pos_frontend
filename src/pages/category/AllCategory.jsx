@@ -30,7 +30,7 @@ function AllCategory(){
             <AlertContainer>
                 {alert}
             </AlertContainer>
-            <Table to="/addCategory" name="Add Category" rowNames={["#","Name","Description","Poto","Actions"]}>
+            <Table to="/category/add" name="Add Category" rowNames={["#","Name","Description","Poto","Actions"]}>
                 {
                     category.map(({_id, name, description, img}, index)=>{
                         return(
@@ -41,7 +41,7 @@ function AllCategory(){
                                 <Img>{img}</Img>
                                 <Td>
                                     <View to="/" />
-                                    <Edit to="/" />
+                                    <Edit to={"/category/edit/"+_id} />
                                     <Delete id={_id} click={delet} />
                                 </Td>
                             </Tr>

@@ -6,6 +6,11 @@ function category(state = initialState, action){
             state = action.data;
             return state;
 
+        case 'ADD_CATEGORY' : 
+            
+            state = [...state, action.data]
+            return state;
+
         case 'REMOVE_CATEGORY' : 
             
             const ndata = state.filter((data)=>{

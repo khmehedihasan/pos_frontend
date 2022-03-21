@@ -5,11 +5,18 @@ import { Button1 } from '../../components/Button';
 import { Form1 } from '../../components/Form';
 import url from '../../url'
 import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
+import { ADD_CATEGORY } from '../../store/actions/category';
+import { useDispatch } from 'react-redux';
 
 
 function AddCategory(){
-    const [alert, setAlert] = useState();
+
+    const [alert, setAlert] = useState([]);
     const [value,setValue] = useState({name:'', description:'', file:{}});
+
+
+    const dispatch = useDispatch();
+
     function input(e){
         setValue({...value,[e.target.name]:e.target.value});
     }
@@ -17,33 +24,32 @@ function AddCategory(){
         setValue({...value,[e.target.name]:e.target.files[0]});
     }
 
-    
 
     function send(){
+        if(value.name === ''){
+            setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message="Name field is required." />]);
+        }else{
 
-        const formData = new FormData();
+            const formData = new FormData();
 
-        formData.append('name',value.name);
-        formData.append('description',value.description);
-        formData.append('photo',value.file);
+            formData.append('name',value.name);
+            formData.append('description',value.description);
+            formData.append('photo',value.file);
 
-
-        fetch(`${url}/category`,{
-            method:"POST",
-            body: formData
-        }).then((data)=>data.json()).then((data)=>{
-            if(data.status === true){
-                setAlert(<Alert1 title="Successful" message={data.message} />);
-                setTimeout(()=>{
-                    setAlert();
-                },8000);
-            }else{
-                setAlert(<Alert2 title="Faild !" message={data.message} />);
-                setTimeout(()=>{
-                    setAlert();
-                },8000);
-            }
-        });
+            fetch(`${url}/category`,{
+                method:"POST",
+                body: formData
+            }).then((data)=>data.json()).then((data)=>{
+                if(data.status === true){
+                    dispatch(ADD_CATEGORY(data.data));
+                    setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
+                    setValue({name:'', description:'', file:{}});
+                }else{
+                    setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);
+                }
+            });
+        }
+        
 
     }
 

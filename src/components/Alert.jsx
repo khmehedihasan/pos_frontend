@@ -17,13 +17,13 @@ function Alert1({title, message}){
             setCount((count)=> count-1);
         },2000);
         setDisplay('block');
-        if(count == 0){
+        if(count === 0){
             setDisplay('hidden');
             clearTimeout(t1);
         }
 
         return(()=> clearTimeout(t1));
-    });
+    },[count]);
 
     return(
         <div className={display + " relative w-72 sm:w-80 h-max px-3 py-1 mt-4 mr-2 float-right rounded-md z-20 bg-green-200 before:absolute before:h-full before:w-1 before:top-0 before:left-0 before:bg-green-500 before:rounded-tl-md before:rounded-bl-md "}>
@@ -43,13 +43,13 @@ function Alert2({title, message}){
             setCount((count)=> count-1);
         },2000);
         setDisplay('block');
-        if(count == 0){
+        if(count === 0){
             setDisplay('hidden');
             clearTimeout(t1);
         }
 
         return(()=> clearTimeout(t1));
-    });
+    },[count]);
 
     return(
         <div className={display + " relative w-72 sm:w-80 h-max px-3 py-1 mt-4 mr-2 rounded-md z-20 bg-red-200 before:absolute before:h-full before:w-1 before:top-0 before:left-0 before:bg-red-500 before:rounded-tl-md before:rounded-bl-md "}>

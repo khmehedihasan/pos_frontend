@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input1({onChange, type, name, value, placeholder, lavel, id}){
+function Input1({onChange, type, name, value, placeholder, lavel, id, fileRef}){
 
     return(
         <>

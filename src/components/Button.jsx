@@ -31,9 +31,15 @@ function Return({to}){
     );
 }
 
-function Delete({click}){
+function Delete({id, click}){
+  
+    function check(){
+        if(window.confirm("Do you want to delete this ?")){
+            click(id)
+        }
+    }
     return(
-        <button onClick={click} className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['Delete'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-trash"></i></button>
+        <button onClick={check} className=" relative p-1 after:absolute after:bottom-0 after:right-0 after:hover:bg-black after:text-white after:text-xs after:hover:content-['Delete'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-trash"></i></button>
     );
 }
 

@@ -17,16 +17,16 @@ const data = [
         title:'Sub Category',
         icon: <i className="fa-solid fa-align-left pr-2"></i>,
         links:[
-            {name:'All SubCategory',link:'/allSubCategory'},
-            {name:'Add SubCategory',link:'/addSubCategory'}
+            {name:'All SubCategory',link:'/subCategory'},
+            {name:'Add SubCategory',link:'/SubCategory/add'}
         ]
     },
     {
         title:'Product',
         icon: <i className="fa-solid fa-apple-whole pr-2"></i>,
         links:[
-            {name:'All Product',link:'/allProduct'},
-            {name:'Add Product',link:'/addProduct'}
+            {name:'All Product',link:'/product'},
+            {name:'Add Product',link:'/product/add'}
         ]
     },
 ]

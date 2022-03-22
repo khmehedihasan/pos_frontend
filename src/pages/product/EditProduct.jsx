@@ -36,11 +36,8 @@ function EditProduct(){
 
         setSubCategory(sCategory);
 
-    },[id]);
+    },[id,sCategory]);
 
-    useEffect(()=>{
-
-    },[])
 
     function getCategory(e){
         fetch(`${url}/category/${e.target.value}`).then((data)=>data.json()).then((data)=>{

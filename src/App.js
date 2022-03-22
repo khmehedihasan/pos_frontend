@@ -7,9 +7,9 @@ import AddCategory from './pages/category/AddCategory';
 import AllCategory from './pages/category/AllCategory';
 import EditCategory from './pages/category/EditCategory';
 
-import AddSubCategory from './pages/sub categery/AddSubCategory';
-import AllSubCategory from './pages/sub categery/AllSubCategory';
-import EditSubCategory from './pages/sub categery/EditSubCategory';
+import AddSubCategory from './pages/subCategery/AddSubCategory';
+import AllSubCategory from './pages/subCategery/AllSubCategory';
+import EditSubCategory from './pages/subCategery/EditSubCategory';
 
 import AllProduct from './pages/product/AllProduct';
 import AddProduct from './pages/product/AddProduct';

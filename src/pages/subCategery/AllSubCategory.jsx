@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Delete, Edit, View } from '../../components/Button';
+import { Delete, Edit } from '../../components/Button';
 import Layout from '../../components/Layout';
 import Table, { Tr, Td, Img } from '../../components/Table';
 import url from '../../url'

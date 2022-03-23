@@ -21,7 +21,7 @@ function ViewProduct(){
     return(
         <Layout>
             <div className=" bg-white drop-shadow-md w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
-                <div className=" h-max mb-4 flex gap-3 justify-center">
+                <div className=" h-max mb-4 flex flex-wrap gap-3 justify-center">
                     <Link className=" px-4 py-1 bg-blue-500 rounded-3xl text-white font-bold border-2 border-blue-500 hover:bg-white hover:text-blue-500" to={"/product/edit/"+product._id}><i className="fa-solid fa-pen-to-square"></i> Edit</Link>
                     <Link className=" px-4 py-1 bg-orange-600 rounded-3xl text-white font-bold border-2 border-orange-500 hover:bg-white hover:text-orange-500" to="/"><i className="fa-solid fa-cart-plus"></i> Purchase</Link>
                     <Link className=" px-4 py-1 bg-green-500 rounded-3xl text-white font-bold border-2 border-green-500 hover:bg-white hover:text-green-500" to="/"><i className="fa-solid fa-cart-shopping"></i> Sale</Link>

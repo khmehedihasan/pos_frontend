@@ -18,7 +18,7 @@ function View({to}){
 function Edit({to}){
     return(
         <Link to={to}>
-            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-green-700 after:hover:bg-green-500 after:text-white after:text-xs after:hover:content-['Edit'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-pen-to-square"></i></button>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-green-500 after:hover:bg-green-500 after:text-white after:text-xs after:hover:content-['Edit'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-pen-to-square"></i></button>
         </Link>
     );
 }

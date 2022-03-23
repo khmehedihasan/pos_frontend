@@ -45,7 +45,7 @@ function AllProduct(){
                                 <Td>{salePrice} <span className="text-xl text-red-600"> ৳</span></Td>
                                 <Img>{img}</Img>
                                 <Td>
-                                    <View to="/" />
+                                    <View to={"/product/"+_id} />
                                     <Edit to={"/product/edit/"+_id} />
                                     <Return to="/" />
                                     <Delete id={_id} click={delet} />

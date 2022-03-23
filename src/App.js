@@ -14,6 +14,7 @@ import EditSubCategory from './pages/subCategery/EditSubCategory';
 import AllProduct from './pages/product/AllProduct';
 import AddProduct from './pages/product/AddProduct';
 import EditProduct from './pages/product/EditProduct';
+import ViewPorduct from './pages/product/ViewPorduct';
 
 
 function App() {
@@ -29,12 +30,13 @@ function App() {
         <Route path="/category" element={ <AllCategory />} />
         <Route path="/category/edit/:id" element={ <EditCategory />} />
 
-        <Route path="/subCategory/add" element={ <AddSubCategory />} />
         <Route path="/subCategory" element={ <AllSubCategory />} />
+        <Route path="/subCategory/add" element={ <AddSubCategory />} />
         <Route path="/subCategory/edit/:id" element={ <EditSubCategory />} />
 
-        <Route path="/product/add" element={ <AddProduct />} />
         <Route path="/product" element={ <AllProduct />} />
+        <Route path="/product/:id" element={ <ViewPorduct />} />
+        <Route path="/product/add" element={ <AddProduct />} />
         <Route path="/product/edit/:id" element={ <EditProduct />} />
 
         <Route path="*" element={<Error />} />

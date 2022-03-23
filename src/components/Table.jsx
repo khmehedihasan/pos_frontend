@@ -6,7 +6,7 @@ function Table({rowNames, to, name, children}){
         <>
         <div className=" w-max xl:w-full mx-auto p-2">
             <div className=" w-full h-14 mt-20 bg-dark-blue-1 mx-auto rounded-tl-md rounded-tr-md">
-                    <Link to={to}><button className=" bg-blue-500 hover:bg-blue-600 float-right mt-2 mr-2 text-white rounded-md px-2 py-1"><i className="fa-solid fa-plus"></i>{name}</button></Link>
+                    <Link to={to}><button className=" rounded-3xl bg-cyan-200 hover:bg-dark-blue-1 border-2 border-cyan-200 hover:text-white   float-right mt-2 mr-2 px-2 py-1">{name}</button></Link>
                 </div>
                 <table className=" w-max lg:w-full mx-auto table-auto border-collapse border border-slate-500">
                     <thead>

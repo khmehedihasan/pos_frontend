@@ -29,6 +29,22 @@ const data = [
             {name:'Add Product',link:'/product/add'}
         ]
     },
+    {
+        title:'Supplier',
+        icon: <i className="fa-solid fa-person-walking-luggage"></i>,
+        links:[
+            {name:'All supplier',link:'/supplier'},
+            {name:'Add supplier',link:'/supplier/add'}
+        ]
+    },
+    {
+        title:'Customer',
+        icon: <i className="fa-solid fa-person-walking"></i>,
+        links:[
+            {name:'All customer',link:'/customer'},
+            {name:'Add customer',link:'/customer/add'}
+        ]
+    },
 ]
 
 function SideBar(){

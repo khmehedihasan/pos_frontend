@@ -45,6 +45,14 @@ const data = [
             {name:'Add customer',link:'/customer/add'}
         ]
     },
+    {
+        title:'Purchase',
+        icon: <i className="fa-solid fa-bag-shopping"></i>,
+        links:[
+            {name:'Purchase Product',link:'/purchase/add'},
+            {name:'Purchase Reports',link:'/purchase'},
+        ]
+    },
 ]
 
 function SideBar(){

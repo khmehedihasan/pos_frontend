@@ -5,6 +5,11 @@ function purchase(state = initialState, action){
         case 'ADD_ALL_PURCHASE' : 
             state = action.data;
             return state;
+        
+        case 'ADD_PURCHASE' : 
+            
+            state = [action.data, ...state ]
+            return state;
            
 
         default : return state;

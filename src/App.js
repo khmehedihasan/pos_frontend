@@ -24,6 +24,9 @@ import AllCustomer from './pages/customer/AllCustomer';
 import AddCustomer from './pages/customer/AddCustomer';
 import EdiCustomer from './pages/customer/EdiCustomer';
 
+import PurchaseProduct from './pages/purchase/PurchaseProduct';
+
+
 
 function App() {
 
@@ -54,6 +57,8 @@ function App() {
         <Route path="/customer" element={ <AllCustomer />} />
         <Route path="/customer/add" element={ <AddCustomer />} />
         <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
+
+        <Route path="/purchase/add" element={ <PurchaseProduct />} />
 
         <Route path="*" element={<Error />} />
       </Routes>

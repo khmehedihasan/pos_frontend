@@ -19,12 +19,15 @@ import ViewPorduct from './pages/product/ViewPorduct';
 import AddSupplier from './pages/supplier/AddSupplier';
 import AllSupplier from './pages/supplier/AllSupplier';
 import EdiSupplier from './pages/supplier/EdiSupplier';
+import ViewSupplier from './pages/supplier/ViewSupplier';
 
 import AllCustomer from './pages/customer/AllCustomer';
 import AddCustomer from './pages/customer/AddCustomer';
 import EdiCustomer from './pages/customer/EdiCustomer';
 
 import PurchaseProduct from './pages/purchase/PurchaseProduct';
+import AllPurchase from './pages/purchase/AllPurchase';
+import ViewPurchase from './pages/purchase/ViewPurchase';
 
 
 
@@ -51,6 +54,7 @@ function App() {
         <Route path="/product/edit/:id" element={ <EditProduct />} />
 
         <Route path="/supplier" element={ <AllSupplier />} />
+        <Route path="/supplier/:id" element={ <ViewSupplier />} />
         <Route path="/supplier/add" element={ <AddSupplier />} />
         <Route path="/supplier/edit/:id" element={ <EdiSupplier />} />
 
@@ -58,6 +62,8 @@ function App() {
         <Route path="/customer/add" element={ <AddCustomer />} />
         <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
 
+        <Route path="/purchase" element={ <AllPurchase />} />
+        <Route path="/purchase/:id" element={ <ViewPurchase />} />
         <Route path="/purchase/add" element={ <PurchaseProduct />} />
 
         <Route path="*" element={<Error />} />

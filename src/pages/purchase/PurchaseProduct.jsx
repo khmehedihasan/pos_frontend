@@ -7,9 +7,11 @@ import url from '../../url'
 import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
 import { ADD_PURCHASE } from '../../store/actions/purchase';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 
 function PurchaseProduct(){
+
     const category = useSelector((state)=>state.category);
     const supplier = useSelector((state)=>state.supplier);
     const [subCategory, setSubCategory] = useState([]);
@@ -17,6 +19,7 @@ function PurchaseProduct(){
     const [pd, setPd] = useState({});
     const [alert, setAlert] = useState([]);
     const [value,setValue] = useState({supplier:'', product:'', payed: 0, quantity: 1});
+    const navigate = useNavigate()
 
 
     const dispatch = useDispatch();
@@ -68,6 +71,9 @@ function PurchaseProduct(){
                     console.log(data)
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setValue({supplier:'', product:'', payed: 0, quantity: 1});
+                    setTimeout(()=>{
+                        navigate('/purchase')
+                    },8000)
                 }else{
                     setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);
                 }
@@ -143,9 +149,9 @@ function PurchaseProduct(){
                             <span><b>Sale price:</b> {pd.salePrice} ৳</span>
                         </div>
                         <div className=" mt-3 flex items-center gap-2">
-                            <span><b>Payable:</b> {pd.purchasePrice*value.quantity} ৳</span>
+                            <span><b>Payable:</b> {pd.salePrice*value.quantity} ৳</span>
                             <span><b>Payed:</b> {value.payed} ৳</span>
-                            <span><b>Due:</b> {pd.purchasePrice*value.quantity - value.payed} ৳</span>
+                            <span><b>Due:</b> {pd.salePrice*value.quantity - value.payed} ৳</span>
                         </div>
 
                     </div>

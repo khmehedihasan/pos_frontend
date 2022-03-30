@@ -43,4 +43,19 @@ function Delete({id, click}){
     );
 }
 
-export { Button1, View, Edit, Return, Delete };
+function Due({click}){
+    return(
+        <button  onClick={click} className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-green-600 after:hover:bg-green-600 after:text-white after:text-xs after:hover:content-['Pay'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-hand-holding-dollar"></i></button>
+    )
+
+}
+
+function Invoice({to}){
+    return(
+        <Link to={to}>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-orange-500 after:hover:bg-orange-500 after:text-white after:text-xs after:hover:content-['Invoice'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i class="fa-solid fa-file-invoice"></i></button>
+        </Link>
+    );
+}
+
+export { Button1, View, Edit, Return, Delete, Due, Invoice };

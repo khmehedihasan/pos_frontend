@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Delete, Edit } from '../../components/Button';
+import { Delete, Edit, View } from '../../components/Button';
 import Layout from '../../components/Layout';
 import Table, { Tr, Td, Img } from '../../components/Table';
 import url from '../../url'
@@ -30,9 +30,9 @@ function AllSupplier(){
             <AlertContainer>
                 {alert}
             </AlertContainer>
-            <Table to="/supplier/add" name="Add Supplier" rowNames={["#","Name","Email", "Phone no.", "Address", "Photo","Actions"]}>
+            <Table to="/supplier/add" name="Add Supplier" rowNames={["#","Name","Email", "Phone no.", "Address", "Photo","Due","Actions"]}>
                 {
-                    supplier.map(({_id, name, email, phone, address, img}, index)=>{
+                    supplier.map(({_id, name, email, phone, address,due, img}, index)=>{
                         return(
                             <Tr key={index}>
                                 <Td>{index+1}</Td>
@@ -41,7 +41,9 @@ function AllSupplier(){
                                 <Td>{phone}</Td>
                                 <Td>{address}</Td>
                                 <Img>{img}</Img>
+                                <Td>{due} <span className="text-xl text-red-600"> ৳</span></Td>
                                 <Td>
+                                    <View to={"/supplier/"+_id} />
                                     <Edit to={"/supplier/edit/"+_id} />
                                     <Delete id={_id} click={delet} />
                                 </Td>

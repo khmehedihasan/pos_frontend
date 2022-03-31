@@ -47,10 +47,18 @@ const data = [
     },
     {
         title:'Purchase',
-        icon: <i className="fa-solid fa-bag-shopping"></i>,
+        icon: <i className="fa-solid fa-cart-shopping"></i>,
         links:[
             {name:'Purchase Product',link:'/purchase/add'},
             {name:'Purchase Reports',link:'/purchase'},
+        ]
+    },
+    {
+        title:'Sale',
+        icon: <i className="fa-solid fa-bag-shopping"></i>,
+        links:[
+            {name:'Sale Product',link:'/sale/add'},
+            {name:'Sale Reports',link:'/sale'},
         ]
     },
 ]

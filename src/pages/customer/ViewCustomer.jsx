@@ -66,7 +66,7 @@ function ViewCustomer(){
                                         <Td>{dat} </Td>
                                         
                                         <Td>
-                                            <Invoice to={"/purchase/invoice/"+_id} />
+                                            <Invoice to={"/sale/invoice/"+_id} />
                                             {
                                                 (due > 0)? <Due />:<span className="w-6 h-3 inline-block"></span>
                                             }

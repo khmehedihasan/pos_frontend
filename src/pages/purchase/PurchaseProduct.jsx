@@ -72,7 +72,7 @@ function PurchaseProduct(){
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setValue({supplier:'', product:'', payed: 0, quantity: 1});
                     setTimeout(()=>{
-                        navigate('/purchase')
+                        navigate("/purchase/invoice/"+data.data._id);
                     },8000)
                 }else{
                     setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);
@@ -146,12 +146,12 @@ function PurchaseProduct(){
                     <div className=" flex flex-col text-sm md:text-base xl:text-xl">
                         <div className="flex items-center gap-2">
                             <span><b>Purchase price:</b> {pd.purchasePrice} ৳</span>
-                            <span><b>Sale price:</b> {pd.salePrice} ৳</span>
+                            <span><b>Quantity:</b> {value.quantity}</span>
                         </div>
                         <div className=" mt-3 flex items-center gap-2">
-                            <span><b>Payable:</b> {pd.salePrice*value.quantity} ৳</span>
+                            <span><b>Payable:</b> {pd.purchasePrice*value.quantity} ৳</span>
                             <span><b>Payed:</b> {value.payed} ৳</span>
-                            <span><b>Due:</b> {pd.salePrice*value.quantity - value.payed} ৳</span>
+                            <span><b>Due:</b> {pd.purchasePrice*value.quantity - value.payed} ৳</span>
                         </div>
 
                     </div>

@@ -53,7 +53,7 @@ function Due({click}){
 function Invoice({to}){
     return(
         <Link to={to}>
-            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-orange-500 after:hover:bg-orange-500 after:text-white after:text-xs after:hover:content-['Invoice'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i class="fa-solid fa-file-invoice"></i></button>
+            <button className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-sky-500 after:hover:bg-sky-500 after:text-white after:text-xs after:hover:content-['Invoice'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-file-invoice"></i></button>
         </Link>
     );
 }

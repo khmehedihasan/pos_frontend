@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {BannerG, BannerR, BannerF, BannerT, BannerC, BannerS} from "../../components/Banner";
-import { Delete, Edit, Return, View } from '../../components/Button';
-import Table, { Tr, Td, Img } from '../../components/Table';
-import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
+import {BannerG, BannerR, BannerF, BannerT} from "../../components/Banner";
+import { Return, View, Invoice, Due } from '../../components/Button';
+import Table, { Tr, Td} from '../../components/Table';
 import Layout from '../../components/Layout'
 import url from "../../url";
-import AddProduct from "../product/AddProduct";
 
 function ViewSupplier(){
 
-    const [supplier, setSupplier] = useState({name:'',img:'',email:'',phone:'',address:'', payable: 0, payed: 0, due: 0,purchases:[]});
+    const [supplier, setSupplier] = useState({name:'',img:'',email:'',phone:'',address:'', payable: 0, payed: 0, due: 0, purchases:[]});
     const {id} = useParams();
 
     useEffect(()=>{
 
         fetch(`${url}/supplier/${id}`).then((data)=>data.json()).then((data)=>{
             setSupplier(data.data)
-            console.log(data)
         });
 
     },[id]);
-    console.log(supplier)
 
     return(
         <Layout>
@@ -33,7 +29,7 @@ function ViewSupplier(){
                     <Link className=" px-4 py-1 bg-red-500 rounded-3xl text-white font-bold border-2 border-red-500 hover:bg-white hover:text-red-500" to="/"><i className="fa-solid fa-share"></i> Return</Link>
                 </div>
                 <div className=" rounded-md bg-gradient-to-r from-cyan-200 to-cyan-400 m-1 flex flex-col md:flex-row">
-                    <img src={supplier.img} alt=" " className=" w-full md:w-1/3 rounded-tr-md rounded-tl-md md:rounded-bl-md md:rounded-tr-none" />
+                    <img src={supplier.img} alt=" Hosting provider delete image after 15 minit." className=" w-full md:w-1/3 rounded-tr-md rounded-tl-md md:rounded-bl-md md:rounded-tr-none" />
                     <div className="p-2 text-cyan-700">
                         <h1><span className=" font-bold">Name: </span>{supplier.name}</h1>
                         <h1><span className=" font-bold">Email: </span>{supplier.email}</h1>
@@ -44,43 +40,46 @@ function ViewSupplier(){
                 <div className=" flex flex-col gap-4 mt-4 md:flex-row md:flex-wrap flex-grow">
                     <BannerF  name="Payable:" >{supplier.payable} ৳</BannerF>
                     <BannerT  name="Payed:" >{supplier.payed} ৳</BannerT>
-                    {/* <BannerC  name="Purchase quantity:" >{}</BannerC>
-                    <BannerS  name="Sale quantity:" >{}</BannerS> */}
                     {
                         (supplier.due  > 0)?<BannerR  name="Due:" >{supplier.due} ৳</BannerR>:<BannerG  name="Due:" color="green">{supplier.due} ৳</BannerG>
                     }
                     
                 </div>
             </div>
-            <div className=" bg-white drop-shadow-md w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
-                {/* <AlertContainer>
-                    {alert}
-                </AlertContainer> */}
-                <Table to="/product/add" name="Add Product" rowNames={["#","Name","Description", "Sub category", "Purchase price", "Sale price", "Photo","Actions"]}>
-                    {
-                        // supplier.purchases.map(({_id, name, description, subCategory, purchasePrice, salePrice, img}, index)=>{
-                        //     return(
-                        //         <Tr key={index}>
-                        //             <Td>{index+1}</Td>
-                        //             <Td>{name}</Td>
-                        //             <Td>{description}</Td>
-                        //             <Td>{subCategory.name}</Td>
-                        //             <Td>{purchasePrice} <span className="text-xl text-red-600"> ৳</span></Td>
-                        //             <Td>{salePrice} <span className="text-xl text-red-600"> ৳</span></Td>
-                        //             <Img>{img}</Img>
-                        //             <Td>
-                        //                 <View to={"/product/"+_id} />
-                        //                 <Edit to={"/product/edit/"+_id} />
-                        //                 <Return to="/" />
-                        //                 {/* <Delete id={_id} click={delet} /> */}
-                        //             </Td>
-                        //         </Tr>
-                        //     );
-                        // })
-                    }
-                    
-                </Table>
-            </div>
+            {
+                (supplier.purchases.length > 0)?
+            <div className=" bg-white drop-shadow-md w-11/12 mx-auto mt-10 rounded-sm  h-max p-4 overflow-auto">
+                <h1 className=" text-center font-bold border-b">Product Purchases</h1>
+            <Table to="/purchase/add" name="Purchase Product" rowNames={["#","Product", "Quantity", "Payable", "Payed", "Due","Date","Actios"]}>
+                {
+                    supplier.purchases.map(({_id, payable, product, payed, due, quantity, date}, index)=>{
+                        const d = new Date(date);
+                        const dat = d.toDateString();
+                        return(
+                            <Tr key={index}>
+                                <Td>{index+1}</Td>
+                                <Td> <View to={"/product/"+product} /></Td>
+                                <Td>{quantity} </Td>
+                                <Td>{payable}<span className="text-xl text-red-600"> ৳</span></Td>
+                                <Td>{payed}<span className="text-xl text-red-600"> ৳</span></Td>
+                                <Td>{due} <span className="text-xl text-red-600"> ৳</span></Td>
+                                <Td>{dat} </Td>
+                                
+                                <Td>
+                                    <Invoice to={"/purchase/invoice/"+_id} />
+                                    {
+                                        (due > 0)? <Due />:<span className="w-6 h-3 inline-block"></span>
+                                    }
+                                    <Return to="/" />
+                                </Td>
+                            </Tr>
+                        );
+                    })
+                }
+                
+            </Table>
+            </div>: <div className=" text-center mt-10 text-red-500"> No product is buy from this supplier. </div>
+            }
         </Layout>
     );
 }

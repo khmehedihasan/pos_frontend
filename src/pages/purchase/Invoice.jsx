@@ -19,7 +19,7 @@ function Invoice(){
     return(
         <Layout>
             <div className=" bg-white drop-shadow-md w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
-                <a href={"/purchase/print/"+id} target="_blank"><i className="fa-solid fa-print text-orange-500"></i></a>
+                <a href={"/purchase/print/"+id} rel="noreferrer" target="_blank"><i className="fa-solid fa-print text-orange-500"></i></a>
                 <div className="text-center">
                     <div className=" text-xl font-bold p-2 "><i className="fa-brands fa-canadian-maple-leaf text-2xl"></i> KH POS</div>
                     <div className=" text-sm"><p>Narsinghapur, Ashulia Highway, Savar, Dhaka.</p></div>

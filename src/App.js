@@ -1,3 +1,4 @@
+import '../src/assets/css/custom.css';
 import { Routes, Route } from 'react-router-dom';
 import useFirstLoad from './hooks/useFirstLoad';
 import Home from './pages/Home';
@@ -24,10 +25,17 @@ import ViewSupplier from './pages/supplier/ViewSupplier';
 import AllCustomer from './pages/customer/AllCustomer';
 import AddCustomer from './pages/customer/AddCustomer';
 import EdiCustomer from './pages/customer/EdiCustomer';
+import ViewCustomer from './pages/customer/ViewCustomer';
 
 import PurchaseProduct from './pages/purchase/PurchaseProduct';
 import AllPurchase from './pages/purchase/AllPurchase';
-import ViewPurchase from './pages/purchase/ViewPurchase';
+import Invoice from './pages/purchase/Invoice';
+import Print from './pages/purchase/Print';
+
+import SaleProduct from './pages/sale/SaleProduct';
+import AllSale from './pages/sale/AllSale';
+import InvoiceS from './pages/sale/Invoice';
+import PrintS from './pages/sale/Print';
 
 
 
@@ -59,12 +67,20 @@ function App() {
         <Route path="/supplier/edit/:id" element={ <EdiSupplier />} />
 
         <Route path="/customer" element={ <AllCustomer />} />
+        <Route path="/customer/:id" element={ <ViewCustomer />} />
         <Route path="/customer/add" element={ <AddCustomer />} />
         <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
 
         <Route path="/purchase" element={ <AllPurchase />} />
-        <Route path="/purchase/:id" element={ <ViewPurchase />} />
         <Route path="/purchase/add" element={ <PurchaseProduct />} />
+        <Route path="/purchase/Invoice/:id" element={ <Invoice />} />
+        <Route path="/purchase/print/:id" element={ <Print />} />
+
+        <Route path="/sale" element={ <AllSale />} />
+        <Route path="/sale/add" element={ <SaleProduct />} />
+        <Route path="/sale/Invoice/:id" element={ <InvoiceS />} />
+        <Route path="/sale/print/:id" element={ <PrintS />} />
+
 
         <Route path="*" element={<Error />} />
       </Routes>

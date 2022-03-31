@@ -16,8 +16,6 @@ function Print(){
 
     },[id]);
 
-    console.log(purchase)
-    // <button onClick={()=>window.print()} className='no-printme'><i className="fa-solid fa-print"></i></button>
     return(
         <div className=" w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
             <button onClick={()=>window.print()} className='no-printme'><i className="fa-solid fa-print"></i></button>
@@ -33,8 +31,8 @@ function Print(){
                     <thead>
                         <tr className=" text-left border-slate-500 border-b">
                             <th>Product Name</th>
-                            <th>Purchase price</th>
-                            <th> Quantity</th>
+                            <th>Purchase Price</th>
+                            <th>Quantity</th>
                             <th>Total</th>
                         </tr>
                     </thead>

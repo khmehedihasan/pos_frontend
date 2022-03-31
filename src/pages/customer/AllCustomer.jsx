@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Delete, Edit } from '../../components/Button';
+import { Delete, Edit, View } from '../../components/Button';
 import Layout from '../../components/Layout';
 import Table, { Tr, Td, Img } from '../../components/Table';
 import url from '../../url'
@@ -42,6 +42,7 @@ function AllCustomer(){
                                 <Td>{address}</Td>
                                 <Img>{img}</Img>
                                 <Td>
+                                    <View to={"/customer/"+_id} />
                                     <Edit to={"/customer/edit/"+_id} />
                                     <Delete id={_id} click={delet} />
                                 </Td>

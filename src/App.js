@@ -21,11 +21,13 @@ import AddSupplier from './pages/supplier/AddSupplier';
 import AllSupplier from './pages/supplier/AllSupplier';
 import EdiSupplier from './pages/supplier/EdiSupplier';
 import ViewSupplier from './pages/supplier/ViewSupplier';
+import SupplierReturnReport from './pages/supplier/return/SupplierReturnReport';
 
 import AllCustomer from './pages/customer/AllCustomer';
 import AddCustomer from './pages/customer/AddCustomer';
 import EdiCustomer from './pages/customer/EdiCustomer';
 import ViewCustomer from './pages/customer/ViewCustomer';
+import CustomerReturnReport from './pages/customer/return/CustomerReturnReport';
 
 import PurchaseProduct from './pages/purchase/PurchaseProduct';
 import AllPurchase from './pages/purchase/AllPurchase';
@@ -65,11 +67,13 @@ function App() {
         <Route path="/supplier/:id" element={ <ViewSupplier />} />
         <Route path="/supplier/add" element={ <AddSupplier />} />
         <Route path="/supplier/edit/:id" element={ <EdiSupplier />} />
+        <Route path="/supplier/return" element={ <SupplierReturnReport />} />
 
         <Route path="/customer" element={ <AllCustomer />} />
         <Route path="/customer/:id" element={ <ViewCustomer />} />
         <Route path="/customer/add" element={ <AddCustomer />} />
         <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
+        <Route path="/customer/return" element={ <CustomerReturnReport />} />
 
         <Route path="/purchase" element={ <AllPurchase />} />
         <Route path="/purchase/add" element={ <PurchaseProduct />} />

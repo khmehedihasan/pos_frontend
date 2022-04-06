@@ -51,6 +51,8 @@ const data = [
         links:[
             {name:'Purchase Product',link:'/purchase/add'},
             {name:'Purchase Reports',link:'/purchase'},
+            {name:'Due Reports',link:'/supplier/due'},
+            {name:'Return Reports',link:'/supplier/return'},
         ]
     },
     {
@@ -59,6 +61,8 @@ const data = [
         links:[
             {name:'Sale Product',link:'/sale/add'},
             {name:'Sale Reports',link:'/sale'},
+            {name:'Due Reports',link:'/customer/due'},
+            {name:'Return Reports',link:'/customer/return'},
         ]
     },
 ]

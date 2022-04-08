@@ -43,9 +43,11 @@ function Delete({id, click}){
     );
 }
 
-function Due({click}){
+function Due({to}){
     return(
-        <button  onClick={click} className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-green-600 after:hover:bg-green-600 after:text-white after:text-xs after:hover:content-['Pay'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-hand-holding-dollar"></i></button>
+        <Link to={to}>
+            <button  className=" relative p-1 after:absolute after:bottom-0 after:right-0 text-green-600 after:hover:bg-green-600 after:text-white after:text-xs after:hover:content-['Pay'] after:mb-6 after:px-2 after:py-0.5 after:rounded-sm"><i className="fa-solid fa-hand-holding-dollar"></i></button>
+        </Link>
     )
 
 }

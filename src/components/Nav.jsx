@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Nav({setShow}){
 
@@ -45,6 +45,11 @@ function Nav({setShow}){
         <nav className=" z-0 float-left w-full md:w-3/4 lg:w-4/5 xl:w-10/12 flex items-center justify-between px-6  bg-white h-screen-2 border-b-2">
             <div>
                 <span onClick={()=> setShow("-ml-0")} className=" block md:hidden"><i className="fa-solid fa-bars text-2xl"></i></span>
+                <div className=" hidden md:block lg:ml-20">
+                    <Link className=" px-4 py-2 bg-orange-600 rounded-3xl text-white font-bold border-2 border-orange-500 hover:bg-white hover:text-orange-500" to="/purchase/add"><i className="fa-solid fa-cart-plus"></i> Purchase</Link>
+                    <Link className=" ml-1 px-4 py-2 bg-green-500 rounded-3xl text-white font-bold border-2 border-green-500 hover:bg-white hover:text-green-500" to="/sale/add"><i className="fa-solid fa-cart-shopping"></i> Sale</Link>
+                </div>
+
             </div>
             <div className=" w-max flex items-center justify-end gap-3">
                 <div className=' relative w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gray-200 p-3 '>

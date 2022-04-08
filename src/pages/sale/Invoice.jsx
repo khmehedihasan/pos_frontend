@@ -16,6 +16,9 @@ function Invoice(){
 
     },[id]);
 
+    const d = new Date(sale.date);
+    const dat = d.toDateString();
+
     return(
         <Layout>
             <div className=" bg-white drop-shadow-md w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
@@ -71,6 +74,9 @@ function Invoice(){
                     <div><b> Address : </b>{sale.customer.address}</div>
                     <div><b> Phone : </b>{sale.customer.phone}</div>
                     <div><b> Email : </b>{sale.customer.email}</div>
+                </div>
+                <div className=" text-xs sm:text-sm md:text-base float-right relative -mt-5">
+                    <b> Date : </b>{dat}
                 </div>
             </div>
         </Layout>

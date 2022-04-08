@@ -7,7 +7,6 @@ import url from '../../url'
 import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
 import { ADD_PURCHASE } from '../../store/actions/purchase';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
 
 
 function PurchaseProduct(){
@@ -19,7 +18,6 @@ function PurchaseProduct(){
     const [pd, setPd] = useState({});
     const [alert, setAlert] = useState([]);
     const [value,setValue] = useState({supplier:'', product:'', payed: 0, quantity: 1});
-    const navigate = useNavigate()
 
 
     const dispatch = useDispatch();
@@ -68,11 +66,10 @@ function PurchaseProduct(){
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(ADD_PURCHASE(data.data));
-                    console.log(data)
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setValue({supplier:'', product:'', payed: 0, quantity: 1});
                     setTimeout(()=>{
-                        navigate("/purchase/invoice/"+data.data._id);
+                        window.open(`/purchase/print/${data.data._id}`, "_blank");
                     },8000)
                 }else{
                     setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);

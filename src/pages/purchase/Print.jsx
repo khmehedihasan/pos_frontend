@@ -16,6 +16,10 @@ function Print(){
 
     },[id]);
 
+    const d = new Date(purchase.date);
+    const dat = d.toDateString();
+
+
     return(
         <div className=" w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
             <button onClick={()=>window.print()} className='no-printme'><i className="fa-solid fa-print"></i></button>
@@ -70,6 +74,9 @@ function Print(){
                 <div><b> Address : </b>{purchase.supplier.address}</div>
                 <div><b> Phone : </b>{purchase.supplier.phone}</div>
                 <div><b> Email : </b>{purchase.supplier.email}</div>
+            </div>
+            <div className=" text-xs sm:text-sm md:text-base float-right relative -mt-5">
+                <b> Date : </b>{dat}
             </div>
         </div>
     );

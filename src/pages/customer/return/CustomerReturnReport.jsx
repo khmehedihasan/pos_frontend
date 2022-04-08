@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { View, Return, Invoice, Due} from '../../../components/Button';
+import { View, Invoice} from '../../../components/Button';
 import Layout from '../../../components/Layout';
 import Table, { Tr, Td } from '../../../components/Table';
 import url from '../../../url';
@@ -19,7 +18,6 @@ function CustomerReturnReport(){
         return ()=> setReturn([])
     },[]);
 
-    console.log(retrn)
 
     return(
         <Layout>

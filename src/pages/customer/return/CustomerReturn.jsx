@@ -6,7 +6,6 @@ import { Input1} from '../../../components/Input';
 import { Button1 } from '../../../components/Button';
 import { Form1 } from '../../../components/Form';
 import { Alert1, Alert2, AlertContainer } from '../../../components/Alert';
-import { useNavigate } from "react-router-dom";
 
 function CustomerReturn(){
 
@@ -14,7 +13,6 @@ function CustomerReturn(){
     const [value,setValue] = useState(0);
     const [alert, setAlert] = useState([]);
     const {id} = useParams();
-    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch(`${url}/sale/${id}`).then((data)=>data.json()).then((data)=>{
@@ -29,14 +27,12 @@ function CustomerReturn(){
         setValue(e.target.value);
     }
 
-    console.log(product)
-
     function send(){
         fetch(`${url}/return/customer/${id}`,{method:'POST',body: JSON.stringify({quantity:value})}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                 setTimeout(()=>{
-                    navigate("/purchase/invoice/"+data.data._id);
+                    window.open(`/customer/return/print/${data.data._id}`, "_blank");
                 },8000)
             }else{
                 setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);

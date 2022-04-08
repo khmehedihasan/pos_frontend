@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {BannerG, BannerR, BannerF, BannerT, BannerC, BannerS} from "../../components/Banner";
 import Layout from '../../components/Layout'
-import { Img } from "../../components/Table";
 import url from "../../url";
 
 function ViewPurchase(){
@@ -17,7 +15,6 @@ function ViewPurchase(){
         });
 
     },[id]);
-    console.log(purchase)
 
     return(
         <Layout>
@@ -41,17 +38,6 @@ function ViewPurchase(){
                         <h1><span className=" font-bold">Sub category: </span>{purchase.supplierName}</h1>
                     </div>
                 </div>
-                {/* <div className=" flex flex-col gap-4 mt-4 md:flex-row md:flex-wrap flex-grow">
-                    <BannerC  name="Purchase quantity:" >{purchase.quantity}</BannerC>
-                    <BannerF  name="Payable:" >{purchase.payable} ৳</BannerF>
-                    <BannerT  name="Payed:" >{purchase.payed} ৳</BannerT>
-                    <BannerC  name="Purchase quantity:" >{purchase.purchaseQuantity}</BannerC>
-                    <BannerS  name="Sale quantity:" >{purchase.saleQuantity}</BannerS>
-                    {
-                        (purchase.due  > 0)?<BannerR  name="Due:" >{purchase.due} ৳</BannerR>:<BannerG  name="Due:" color="green">{purchase.due} ৳</BannerG>
-                    }
-                    
-                </div> */}
             </div>
         </Layout>
     );

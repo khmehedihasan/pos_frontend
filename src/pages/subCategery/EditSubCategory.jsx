@@ -60,7 +60,6 @@ function EditSubCategory(){
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(UPDATE_SUB_CATEGORY({id,data:data.data}))
-                    console.log(data)
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setValue({name:'', description:'', file:{}});
                 }else{

@@ -18,7 +18,6 @@ function SupplierDueReport(){
         return ()=> setDue([])
     },[]);
 
-    console.log(due)
 
     return(
         <Layout>

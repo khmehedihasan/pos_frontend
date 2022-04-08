@@ -7,7 +7,6 @@ import url from '../../url'
 import { Alert1, Alert2, AlertContainer } from '../../components/Alert';
 import { ADD_SALE } from '../../store/actions/sale';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
 
 
 function SaleProduct(){
@@ -19,7 +18,6 @@ function SaleProduct(){
     const [pd, setPd] = useState({});
     const [alert, setAlert] = useState([]);
     const [value,setValue] = useState({customer:'', product:'', received: 0, quantity: 1});
-    const navigate = useNavigate()
 
 
     const dispatch = useDispatch();
@@ -71,7 +69,7 @@ function SaleProduct(){
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setValue({customer:'', product:'', received: 0, quantity: 1});
                     setTimeout(()=>{
-                        navigate("/sale/invoice/"+data.data._id);
+                        window.open(`/sale/print/${data.data._id}`, "_blank");
                     },8000)
                 }else{
                     setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild !" message={data.message} />]);

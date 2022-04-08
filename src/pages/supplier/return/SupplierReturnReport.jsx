@@ -18,8 +18,6 @@ function SupplierReturnReport(){
         return ()=> setReturn([])
     },[]);
 
-    console.log(retrn)
-
     return(
         <Layout>
             <Table to="/purchase/add" name="Purchase Product" rowNames={["#","Product","Supplier","Purchase", "Before Stock", "Return", "After Stock", "Stock Now", "Purchase Price", "Got Money","Date","Invoice"]}>

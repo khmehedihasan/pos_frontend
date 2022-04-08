@@ -19,7 +19,6 @@ function CustomerDueReport(){
         return ()=> setDue([])
     },[]);
 
-    console.log(due)
 
     return(
         <Layout>

@@ -22,12 +22,26 @@ import AllSupplier from './pages/supplier/AllSupplier';
 import EdiSupplier from './pages/supplier/EdiSupplier';
 import ViewSupplier from './pages/supplier/ViewSupplier';
 import SupplierReturnReport from './pages/supplier/return/SupplierReturnReport';
+import SupplierReturn from './pages/supplier/return/SupplierReturn';
+import InvoiceSI from './pages/supplier/return/Invoice';
+import PrintSI from './pages/supplier/return/Print';
+import SupplierDueReport from './pages/supplier/due/SupplierDueReport';
+import SupplierDue from './pages/supplier/due/SupplierDue';
+import InvoiceSD from './pages/supplier/due/Invoice';
+import PrintSD from './pages/supplier/due/Print';
 
 import AllCustomer from './pages/customer/AllCustomer';
 import AddCustomer from './pages/customer/AddCustomer';
 import EdiCustomer from './pages/customer/EdiCustomer';
 import ViewCustomer from './pages/customer/ViewCustomer';
 import CustomerReturnReport from './pages/customer/return/CustomerReturnReport';
+import CustomerReturn from './pages/customer/return/CustomerReturn';
+import InvoiceCI from './pages/customer/return/Invoice';
+import PrintCI from './pages/customer/return/Print';
+import CustomerDueReport from './pages/customer/due/CustomerDueReport';
+import CustomerDue from './pages/customer/due/CustomerDue';
+import InvoiceCD from './pages/customer/due/Invoice';
+import PrintCD from './pages/customer/due/Print';
 
 import PurchaseProduct from './pages/purchase/PurchaseProduct';
 import AllPurchase from './pages/purchase/AllPurchase';
@@ -68,12 +82,27 @@ function App() {
         <Route path="/supplier/add" element={ <AddSupplier />} />
         <Route path="/supplier/edit/:id" element={ <EdiSupplier />} />
         <Route path="/supplier/return" element={ <SupplierReturnReport />} />
+        <Route path="/supplier/return/:id" element={ <SupplierReturn />} />
+        <Route path="/supplier/return/invoice/:id" element={ <InvoiceSI />} />
+        <Route path="/supplier/return/print/:id" element={ <PrintSI />} />
+        <Route path="/supplier/due" element={ <SupplierDueReport />} />
+        <Route path="/supplier/due/return:id" element={ <SupplierDue />} />
+        <Route path="/supplier/due/:id" element={ <SupplierDue />} />
+        <Route path="/supplier/due/invoice/:id" element={ <InvoiceSD />} />
+        <Route path="/supplier/due/print/:id" element={ <PrintSD />} />
 
         <Route path="/customer" element={ <AllCustomer />} />
         <Route path="/customer/:id" element={ <ViewCustomer />} />
         <Route path="/customer/add" element={ <AddCustomer />} />
         <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
         <Route path="/customer/return" element={ <CustomerReturnReport />} />
+        <Route path="/customer/return/:id" element={ <CustomerReturn />} />
+        <Route path="/customer/return/invoice/:id" element={ <InvoiceCI />} />
+        <Route path="/customer/return/print/:id" element={ <PrintCI />} />
+        <Route path="/customer/due" element={ <CustomerDueReport />} />
+        <Route path="/customer/due/:id" element={ <CustomerDue />} />
+        <Route path="/customer/due/invoice/:id" element={ <InvoiceCD />} />
+        <Route path="/customer/due/print/:id" element={ <PrintCD />} />
 
         <Route path="/purchase" element={ <AllPurchase />} />
         <Route path="/purchase/add" element={ <PurchaseProduct />} />

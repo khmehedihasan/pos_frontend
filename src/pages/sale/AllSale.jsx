@@ -31,9 +31,11 @@ function AllSale(){
                                 <Td>
                                     <Invoice to={"/sale/invoice/"+_id} />
                                     {
-                                        (due > 0)? <Due />:<span className="w-6 h-3 inline-block"></span>
+                                        (due > 0)? <Due to={"/customer/due/"+_id} />:<span className="w-6 h-3 inline-block"></span>
                                     }
-                                    <Return to="/" />
+                                    {
+                                         (quantity > 0)? <Return to={"/customer/return/"+_id} />:<span className="w-6 h-3 inline-block"></span>
+                                    }
                                 </Td>
                             </Tr>
                         );

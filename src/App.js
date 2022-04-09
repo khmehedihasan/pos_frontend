@@ -1,7 +1,7 @@
 import '../src/assets/css/custom.css';
 import { Routes, Route } from 'react-router-dom';
 import useFirstLoad from './hooks/useFirstLoad';
-import Home from './pages/Home';
+import Home from './pages/dashboard/Home';
 import Error from './pages/Error';
 
 import AddCategory from './pages/category/AddCategory';

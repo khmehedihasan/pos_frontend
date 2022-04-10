@@ -24,11 +24,11 @@ function SReportPi(){
 
     fetch(`${url}/report/sale/totalReceived`).then((data)=>data.json()).then((data)=>{
       setData((prev)=> [...prev,{name:"Received",value: data[0].total}]);
+      fetch(`${url}/report/sale/totalDue`).then((data)=>data.json()).then((data)=>{
+        setData((prev)=> [...prev,{name:"Due",value: data[0].total}]);
+      });
+ 
      });
-
-    fetch(`${url}/report/sale/totalDue`).then((data)=>data.json()).then((data)=>{
-     setData((prev)=> [...prev,{name:"Due",value: data[0].total}]);
-    });
 
 
     return () => setData([]);

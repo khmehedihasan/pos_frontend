@@ -1,6 +1,9 @@
 import '../src/assets/css/custom.css';
 import { Routes, Route } from 'react-router-dom';
 import useFirstLoad from './hooks/useFirstLoad';
+
+
+import LogIn from './pages/LogIn';
 import Home from './pages/dashboard/Home';
 import Error from './pages/Error';
 
@@ -63,6 +66,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={ <Home />} />
+        <Route path="/login" element={ <LogIn />} />
 
         <Route path="/category/add" element={ <AddCategory />} />
         <Route path="/category" element={ <AllCategory />} />

@@ -27,13 +27,13 @@ function SaleProduct(){
     }
 
     function getCategory(e){
-        fetch(`${url}/category/${e.target.value}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/category/${e.target.value}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSubCategory(data.data[0].subCategorys);
         })    
     }
 
     function getSubCategory(e){
-        fetch(`${url}/subCategory/${e.target.value}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/subCategory/${e.target.value}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
 
             setProduct(data.data.products);
             setPd(data.data.products);
@@ -42,7 +42,7 @@ function SaleProduct(){
 
     function getPd(e){
 
-        fetch(`${url}/product/${e.target.value}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/product/${e.target.value}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setPd(data.data);
         })    
     }
@@ -62,6 +62,7 @@ function SaleProduct(){
 
             fetch(`${url}/sale`,{
                 method:"POST",
+                credentials: 'include',
                 body: JSON.stringify({productId:value.product, customerId:value.customer, received:value.received, quantity:value.quantity})
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){

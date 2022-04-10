@@ -26,7 +26,7 @@ function EditCategory(){
     }
 
     useEffect(()=>{
-        fetch(`${url}/category/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/category/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             const {name, description, img} = data.data[0];
             setValue({name, description, img});
         });

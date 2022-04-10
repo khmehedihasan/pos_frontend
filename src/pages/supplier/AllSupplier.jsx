@@ -15,7 +15,7 @@ function AllSupplier(){
     const dispatch = useDispatch();
 
     function delet(id){
-        fetch(`${url}/supplier/${id}`,{method:'delete'}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/supplier/${id}`,{method:'delete',credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 dispatch(REMOVE_SUPPLIER(id))
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);

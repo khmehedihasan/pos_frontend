@@ -10,7 +10,7 @@ function SupplierReturnReport(){
     const [retrn, setReturn] = useState([]);
 
     useEffect(()=>{
-        fetch(`${url}/return/supplier/`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/return/supplier/`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setReturn(data.data);
             }

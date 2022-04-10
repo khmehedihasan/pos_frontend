@@ -10,7 +10,7 @@ function Home(){
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    fetch(`${url}/product`).then((data)=>data.json()).then((data)=>{
+    fetch(`${url}/product`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
         setData(data.data);
     });
   },[]);

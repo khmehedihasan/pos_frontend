@@ -26,7 +26,7 @@ function AddProduct(){
     }
 
     function getCategory(e){
-        fetch(`${url}/category/${e.target.value}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/category/${e.target.value}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSubCategory(data.data[0].subCategorys);
         })    
     }
@@ -54,7 +54,8 @@ function AddProduct(){
 
             fetch(`${url}/product`,{
                 method:"POST",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(ADD_PRODUCT(data.data));

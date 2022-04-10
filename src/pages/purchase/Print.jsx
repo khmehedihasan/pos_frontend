@@ -9,7 +9,7 @@ function Print(){
 
     useEffect(()=>{
 
-        fetch(`${url}/purchase/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/purchase/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setPurchase(data.data);
             window.print();
         });

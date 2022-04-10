@@ -10,7 +10,7 @@ function CustomerReturnReport(){
     const [retrn, setReturn] = useState([]);
 
     useEffect(()=>{
-        fetch(`${url}/return/customer/`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/return/customer/`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setReturn(data.data);
             }

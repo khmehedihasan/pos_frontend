@@ -27,7 +27,7 @@ function EditSubCategory(){
     }
 
     useEffect(()=>{
-        fetch(`${url}/subCategory/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/subCategory/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             const {name, description, img, category} = data.data;
             setValue({name, description, category:category._id, img});
         });
@@ -56,7 +56,8 @@ function EditSubCategory(){
 
             fetch(`${url}/subCategory/${id}`,{
                 method:"PUT",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(UPDATE_SUB_CATEGORY({id,data:data.data}))

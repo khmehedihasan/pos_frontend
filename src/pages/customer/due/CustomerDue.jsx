@@ -16,7 +16,7 @@ function CustomerDue(){
 
     useEffect(()=>{
 
-        fetch(`${url}/sale/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/sale/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSale(data.data)
         });
 
@@ -27,7 +27,7 @@ function CustomerDue(){
     }
 
     function send(){
-        fetch(`${url}/due/customer/${id}`,{method:'POST',body: JSON.stringify({received:value})}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/due/customer/${id}`,{method:'POST',credentials: 'include',body: JSON.stringify({received:value})}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                 setTimeout(()=>{

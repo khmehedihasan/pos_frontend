@@ -13,7 +13,7 @@ function ViewSupplier(){
 
     useEffect(()=>{
 
-        fetch(`${url}/supplier/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/supplier/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSupplier(data.data)
         });
 

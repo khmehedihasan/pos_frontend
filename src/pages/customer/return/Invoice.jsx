@@ -10,7 +10,7 @@ function Invoice(){
 
     useEffect(()=>{
 
-        fetch(`${url}/return/customer/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/return/customer/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSale(data.data)
         });
 

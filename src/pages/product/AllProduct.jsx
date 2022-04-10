@@ -16,7 +16,7 @@ function AllProduct(){
 
     function delet(id){
 
-        fetch(`${url}/product/${id}`,{method:'delete'}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/product/${id}`,{method:'delete',credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 dispatch(REMOVE_PRODUCT(id));
 

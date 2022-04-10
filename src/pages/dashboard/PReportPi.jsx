@@ -22,11 +22,14 @@ function PReportPi(){
 
   useEffect(()=>{
 
-    fetch(`${url}/report/purchase/totalReceived`).then((data)=>data.json()).then((data)=>{
+    fetch(`${url}/report/purchase/totalReceived`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
+
       setData((prev)=> [...prev,{name:"Payed",value: data[0].total}]);
-      fetch(`${url}/report/purchase/totalDue`).then((data)=>data.json()).then((data)=>{
+      
+      fetch(`${url}/report/purchase/totalDue`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
         setData((prev)=> [...prev,{name:"Due",value: data[0].total}]);
        });
+
      });
 
 

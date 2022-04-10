@@ -26,7 +26,7 @@ function EditSupplier(){
     }
 
     useEffect(()=>{
-        fetch(`${url}/supplier/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/supplier/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             const {name, email, phone, address, img} = data.data;
             setValue({name, email, phone, address, img});
         });
@@ -51,7 +51,8 @@ function EditSupplier(){
 
             fetch(`${url}/supplier/${id}`,{
                 method:"PUT",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(UPDATE_SUPPLIER({id,data:data.data}))

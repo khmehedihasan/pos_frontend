@@ -26,7 +26,7 @@ function EditCustomer(){
     }
 
     useEffect(()=>{
-        fetch(`${url}/customer/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/customer/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             const {name, email, phone, address, img} = data.data;
             setValue({name, email, phone, address, img});
         });
@@ -51,7 +51,8 @@ function EditCustomer(){
 
             fetch(`${url}/customer/${id}`,{
                 method:"PUT",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(UPDATE_CUSTOMER({id,data:data.data}))

@@ -15,7 +15,7 @@ function CustomerReturn(){
     const {id} = useParams();
 
     useEffect(()=>{
-        fetch(`${url}/sale/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/sale/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setProduct(data.data.product);
             }
@@ -28,7 +28,7 @@ function CustomerReturn(){
     }
 
     function send(){
-        fetch(`${url}/return/customer/${id}`,{method:'POST',body: JSON.stringify({quantity:value})}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/return/customer/${id}`,{method:'POST',credentials: 'include',body: JSON.stringify({quantity:value})}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                 setTimeout(()=>{

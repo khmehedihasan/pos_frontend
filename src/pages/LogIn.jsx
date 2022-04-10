@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Alert1, Alert2, AlertContainer } from '../components/Alert';
+import url from '../url';
 
 function LogIn(){
-    const [email, setEmail] = useState('domo@gmail.com');
-    const [password, setPassword] = useState('123456');
+    const [email, setEmail] = useState('demo@gmail.com');
+    const [password, setPassword] = useState('1234');
     const [alert, setAlert] = useState([]);
+    const navigate = useNavigate()
+
 
     function send(){
         if(email === ''){
@@ -16,7 +20,22 @@ function LogIn(){
         }
 
         if(email !=='' & password !== ''){
-            setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message='Login Successfully.' />]);
+            fetch(`${url}/user/login`,{
+                method:'POST', 
+                body:JSON.stringify({email,password}),
+                credentials: 'include'
+
+            }).then((data)=>data.json(data)).then((data)=>{
+                console.log(data);
+                if(data.status === true){
+                    setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
+                    setTimeout(()=>{
+                        navigate('/');
+                    },8000)
+                }else{
+                    setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild!" message={data.message} />]);
+                }
+            })
         }
        
     }

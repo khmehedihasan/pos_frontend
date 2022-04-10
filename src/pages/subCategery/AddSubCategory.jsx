@@ -45,7 +45,8 @@ function AddSubCategory(){
 
             fetch(`${url}/subCategory`,{
                 method:"POST",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(ADD_SUB_CATEGORY(data.data));

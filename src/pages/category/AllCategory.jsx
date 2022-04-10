@@ -15,7 +15,7 @@ function AllCategory(){
     const dispatch = useDispatch();
 
     function delet(id){
-        fetch(`${url}/category/${id}`,{method:'delete'}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/category/${id}`,{method:'delete',credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 dispatch(REMOVE_CATEGORY(id))
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);

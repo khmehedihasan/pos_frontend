@@ -10,7 +10,7 @@ function SupplierDueReport(){
     const [due, setDue] = useState([]);
 
     useEffect(()=>{
-        fetch(`${url}/due/supplier/`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/due/supplier/`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setDue(data.data)
             }

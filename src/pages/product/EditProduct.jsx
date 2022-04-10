@@ -29,7 +29,7 @@ function EditProduct(){
     }
 
     useEffect(()=>{
-        fetch(`${url}/product/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/product/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             const {name, description, salePrice, purchasePrice, img, subCategory} = data.data;
             setValue({name, description, salePrice, purchasePrice,  subCategory:subCategory._id, img});
         });
@@ -40,7 +40,7 @@ function EditProduct(){
 
 
     function getCategory(e){
-        fetch(`${url}/category/${e.target.value}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/category/${e.target.value}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setSubCategory(data.data[0].subCategorys);
         })    
     }
@@ -67,7 +67,8 @@ function EditProduct(){
 
             fetch(`${url}/product/${id}`,{
                 method:"PUT",
-                body: formData
+                body: formData,
+                credentials: 'include'
             }).then((data)=>data.json()).then((data)=>{
                 if(data.status === true){
                     dispatch(UPDATE_PRODUCT({id,data:data.data}))

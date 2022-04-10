@@ -15,7 +15,7 @@ function SupplierReturn(){
     const {id} = useParams();
 
     useEffect(()=>{
-        fetch(`${url}/purchase/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/purchase/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setProduct(data.data.product);
             }
@@ -28,7 +28,7 @@ function SupplierReturn(){
     }
 
     function send(){
-        fetch(`${url}/return/supplier/${id}`,{method:'POST',body: JSON.stringify({quantity:value})}).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/return/supplier/${id}`,{method:'POST',credentials: 'include',body: JSON.stringify({quantity:value})}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                 setTimeout(()=>{

@@ -13,7 +13,7 @@ function ViewCustomer(){
 
     useEffect(()=>{
 
-        fetch(`${url}/customer/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/customer/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setCustomer(data.data)
         });
 

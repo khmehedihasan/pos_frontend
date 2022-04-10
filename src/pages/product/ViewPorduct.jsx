@@ -11,7 +11,7 @@ function ViewProduct(){
 
     useEffect(()=>{
 
-        fetch(`${url}/product/${id}`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/product/${id}`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             setProduct(data.data)
         });
 

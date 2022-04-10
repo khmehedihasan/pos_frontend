@@ -10,7 +10,7 @@ function CustomerDueReport(){
     const [due, setDue] = useState([]);
 
     useEffect(()=>{
-        fetch(`${url}/due/customer/`).then((data)=>data.json()).then((data)=>{
+        fetch(`${url}/due/customer/`,{credentials: 'include'}).then((data)=>data.json()).then((data)=>{
             if(data.status === true){
                 setDue(data.data)
             }

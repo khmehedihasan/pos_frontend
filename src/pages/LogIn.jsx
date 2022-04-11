@@ -26,11 +26,11 @@ function LogIn(){
                 credentials: 'include'
 
             }).then((data)=>data.json(data)).then((data)=>{
-                console.log(data);
+
                 if(data.status === true){
                     setAlert((alert)=>[...alert, <Alert1 key={ Date.now()} title="Successful" message={data.message} />]);
                     setTimeout(()=>{
-                        navigate('/');
+                        navigate('/dashboard');
                     },8000)
                 }else{
                     setAlert((alert)=>[...alert, <Alert2 key={ Date.now()} title="Faild!" message={data.message} />]);
@@ -51,7 +51,7 @@ function LogIn(){
 
                 <div className=" lgin w-11/12 md:w-3/5 lg:w-2/4 xl:w-1/3 h-96 mx-auto ">
                     <div >
-                        <h1 className=" text-center text-cyan-300 text-3xl pb-3 border-b border-cyan-400"> Log In</h1>
+                        <h1 className=" text-center text-cyan-300 text-3xl pb-3 border-b border-cyan-400"> ClassicIt POS</h1>
                     </div>
                     <form className=" flex flex-col justify-center p-3 pt-10 gap-y-2" >
                         <label className=" text-cyan-300" htmlFor="email">Email:</label>

@@ -31,7 +31,7 @@ const data = [
     },
     {
         title:'Supplier',
-        icon: <i className="fa-solid fa-person-walking-luggage"></i>,
+        icon: <i className="fa-solid fa-person-walking-luggage pr-2"></i>,
         links:[
             {name:'All supplier',link:'/supplier'},
             {name:'Add supplier',link:'/supplier/add'}
@@ -39,7 +39,7 @@ const data = [
     },
     {
         title:'Customer',
-        icon: <i className="fa-solid fa-person-walking"></i>,
+        icon: <i className="fa-solid fa-person-walking pr-2"></i>,
         links:[
             {name:'All customer',link:'/customer'},
             {name:'Add customer',link:'/customer/add'}
@@ -47,7 +47,7 @@ const data = [
     },
     {
         title:'Purchase',
-        icon: <i className="fa-solid fa-cart-shopping"></i>,
+        icon: <i className="fa-solid fa-cart-shopping "></i>,
         links:[
             {name:'Purchase Product',link:'/purchase/add'},
             {name:'Purchase Reports',link:'/purchase'},
@@ -57,7 +57,7 @@ const data = [
     },
     {
         title:'Sale',
-        icon: <i className="fa-solid fa-bag-shopping"></i>,
+        icon: <i className="fa-solid fa-bag-shopping "></i>,
         links:[
             {name:'Sale Product',link:'/sale/add'},
             {name:'Sale Reports',link:'/sale'},
@@ -79,7 +79,7 @@ function SideBar(){
         }
     },[outSideClick]);
 
-    
+    // "  pt-4 no-underline text-white hover:text-blue-300 block pl-6"
 
 
     return(
@@ -87,7 +87,8 @@ function SideBar(){
             
             <div ref={(show === '-ml-80')? null:outClick} className={show + " block ease-in-out duration-700 float-left absolute top-0 left-0 z-10 md:static md:-ml-0 w-1/2 sm:w-2/5 md:w-1/4 lg:w-1/5 xl:w-2/12 min-h-screen bg-dark-blue-2"}>
                 
-                <div className=" text-xl text-white font-bold p-6 bg-dark-blue-1"><NavLink to="/"><i className="fa-brands fa-canadian-maple-leaf text-2xl"></i> KH POS</NavLink></div>
+                <div className=" text-xl text-white font-bold p-6 bg-dark-blue-1"><NavLink to="/dashboard"><i className="fa-brands fa-canadian-maple-leaf text-2xl"></i> ClassicIt POS</NavLink></div>
+                <NavLink to='/dashboard'  onClick={()=> setShow('-ml-80')} className={({isActive})=>isActive? 'pt-4 no-underline hover:text-blue-300 block pl-6 text-blue-300 ':'pt-4 no-underline hover:text-blue-300 block pl-6 text-white '}  ><i className="fa-solid fa-chart-column pr-2"></i> Dashboard </NavLink>
                     {
                         data.map((data,index)=>{
                             return(

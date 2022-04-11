@@ -24,11 +24,11 @@ function Print(){
         <div className=" w-11/12 mx-auto mt-4 rounded-sm  h-max p-4">
             <button onClick={()=>window.print()} className='no-printme'><i className="fa-solid fa-print"></i></button>
             <div className="text-center">
-                <div className=" text-xl font-bold p-2 "><i className="fa-brands fa-canadian-maple-leaf text-2xl"></i> KH POS</div>
-                <div className=" text-sm"><p>Narsinghapur, Ashulia Highway, Savar, Dhaka.</p></div>
-                <div className=" text-sm"><i className="fa-solid fa-phone"></i> 0123456789</div>
-                <div className=" text-sm"><i className="fa-regular fa-envelope"></i> domo@gmail.com</div>
-                <div className=" text-sm"><i className="fa-solid fa-earth-americas"></i> khshop.com</div>
+                <div className=" text-xl font-bold p-2 "><i className="fa-brands fa-canadian-maple-leaf text-2xl"></i> ClassicIt POS</div>
+                <div className=" text-sm"><p>House # 37(3'rd Floor), Road # 8, Sector # 12, Uttara, Dhaka-1230</p></div>
+                    <div className=" text-sm"><i className="fa-solid fa-phone"></i> 09678114412</div>
+                    <div className=" text-sm"><i className="fa-regular fa-envelope"></i> classicitltd@gmail.com</div>
+                    <div className=" text-sm"><i className="fa-solid fa-earth-americas"></i> https://www.classicit.com.bd</div>
             </div>
             <div className=" rounded-md m-1 flex flex-col md:justify-evenly md:flex-row ">
                 <table className=" w-full table-auto border-collapse border-slate-500 mt-10">

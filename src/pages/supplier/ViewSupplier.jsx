@@ -29,7 +29,7 @@ function ViewSupplier(){
                     <Link className=" px-4 py-1 bg-green-500 rounded-3xl text-white font-bold border-2 border-green-500 hover:bg-white hover:text-green-500" to="/sale/add"><i className="fa-solid fa-cart-shopping"></i> Sale</Link>
                 </div>
                 <div className=" rounded-md bg-gradient-to-r from-cyan-200 to-cyan-400 m-1 flex flex-col md:flex-row">
-                    <img src={supplier.img} alt=" Hosting provider delete image after 15 minit." className=" w-full md:w-1/3 rounded-tr-md rounded-tl-md md:rounded-bl-md md:rounded-tr-none" />
+                    <img src={supplier.img} alt=" " className=" w-full md:w-1/3 rounded-tr-md rounded-tl-md md:rounded-bl-md md:rounded-tr-none" />
                     <div className="p-2 text-cyan-700">
                         <h1><span className=" font-bold">Name: </span>{supplier.name}</h1>
                         <h1><span className=" font-bold">Email: </span>{supplier.email}</h1>

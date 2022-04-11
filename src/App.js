@@ -2,6 +2,8 @@ import '../src/assets/css/custom.css';
 import { Routes, Route } from 'react-router-dom';
 import useFirstLoad from './hooks/useFirstLoad';
 
+import IsLogIn from './pages/IsLogIn';
+import IsLogOut from './pages/IsLogOut';
 
 import LogIn from './pages/LogIn';
 import Home from './pages/dashboard/Home';
@@ -61,62 +63,73 @@ import PrintS from './pages/sale/Print';
 function App() {
 
   useFirstLoad();
+  
 
   return (
     <>
       <Routes>
-        <Route path="/" element={ <Home />} />
-        <Route path="/login" element={ <LogIn />} />
+        
+        <Route path='/*' element={<IsLogOut />} >
+          <Route path="logIn" element={ <LogIn />} />
+        </Route>
 
-        <Route path="/category/add" element={ <AddCategory />} />
-        <Route path="/category" element={ <AllCategory />} />
-        <Route path="/category/edit/:id" element={ <EditCategory />} />
 
-        <Route path="/subCategory" element={ <AllSubCategory />} />
-        <Route path="/subCategory/add" element={ <AddSubCategory />} />
-        <Route path="/subCategory/edit/:id" element={ <EditSubCategory />} />
+        <Route path='/*' element={<IsLogIn />} >
 
-        <Route path="/product" element={ <AllProduct />} />
-        <Route path="/product/:id" element={ <ViewPorduct />} />
-        <Route path="/product/add" element={ <AddProduct />} />
-        <Route path="/product/edit/:id" element={ <EditProduct />} />
+          <Route path="dashboard" element={ <Home />} /> 
 
-        <Route path="/supplier" element={ <AllSupplier />} />
-        <Route path="/supplier/:id" element={ <ViewSupplier />} />
-        <Route path="/supplier/add" element={ <AddSupplier />} />
-        <Route path="/supplier/edit/:id" element={ <EdiSupplier />} />
-        <Route path="/supplier/return" element={ <SupplierReturnReport />} />
-        <Route path="/supplier/return/:id" element={ <SupplierReturn />} />
-        <Route path="/supplier/return/invoice/:id" element={ <InvoiceSI />} />
-        <Route path="/supplier/return/print/:id" element={ <PrintSI />} />
-        <Route path="/supplier/due" element={ <SupplierDueReport />} />
-        <Route path="/supplier/due/return:id" element={ <SupplierDue />} />
-        <Route path="/supplier/due/:id" element={ <SupplierDue />} />
-        <Route path="/supplier/due/invoice/:id" element={ <InvoiceSD />} />
-        <Route path="/supplier/due/print/:id" element={ <PrintSD />} />
+          <Route path="category/add" element={ <AddCategory />} />
+          <Route path="category" element={ <AllCategory />} />
+          <Route path="category/edit/:id" element={ <EditCategory />} />
 
-        <Route path="/customer" element={ <AllCustomer />} />
-        <Route path="/customer/:id" element={ <ViewCustomer />} />
-        <Route path="/customer/add" element={ <AddCustomer />} />
-        <Route path="/customer/edit/:id" element={ <EdiCustomer />} />
-        <Route path="/customer/return" element={ <CustomerReturnReport />} />
-        <Route path="/customer/return/:id" element={ <CustomerReturn />} />
-        <Route path="/customer/return/invoice/:id" element={ <InvoiceCI />} />
-        <Route path="/customer/return/print/:id" element={ <PrintCI />} />
-        <Route path="/customer/due" element={ <CustomerDueReport />} />
-        <Route path="/customer/due/:id" element={ <CustomerDue />} />
-        <Route path="/customer/due/invoice/:id" element={ <InvoiceCD />} />
-        <Route path="/customer/due/print/:id" element={ <PrintCD />} />
+          <Route path="subCategory" element={ <AllSubCategory />} />
+          <Route path="subCategory/add" element={ <AddSubCategory />} />
+          <Route path="subCategory/edit/:id" element={ <EditSubCategory />} />
 
-        <Route path="/purchase" element={ <AllPurchase />} />
-        <Route path="/purchase/add" element={ <PurchaseProduct />} />
-        <Route path="/purchase/Invoice/:id" element={ <Invoice />} />
-        <Route path="/purchase/print/:id" element={ <Print />} />
+          <Route path="product" element={ <AllProduct />} />
+          <Route path="product/:id" element={ <ViewPorduct />} />
+          <Route path="product/add" element={ <AddProduct />} />
+          <Route path="product/edit/:id" element={ <EditProduct />} />
 
-        <Route path="/sale" element={ <AllSale />} />
-        <Route path="/sale/add" element={ <SaleProduct />} />
-        <Route path="/sale/Invoice/:id" element={ <InvoiceS />} />
-        <Route path="/sale/print/:id" element={ <PrintS />} />
+          <Route path="supplier" element={ <AllSupplier />} />
+          <Route path="supplier/:id" element={ <ViewSupplier />} />
+          <Route path="supplier/add" element={ <AddSupplier />} />
+          <Route path="supplier/edit/:id" element={ <EdiSupplier />} />
+          <Route path="supplier/return" element={ <SupplierReturnReport />} />
+          <Route path="supplier/return/:id" element={ <SupplierReturn />} />
+          <Route path="supplier/return/invoice/:id" element={ <InvoiceSI />} />
+          <Route path="supplier/return/print/:id" element={ <PrintSI />} />
+          <Route path="supplier/due" element={ <SupplierDueReport />} />
+          <Route path="supplier/due/return:id" element={ <SupplierDue />} />
+          <Route path="supplier/due/:id" element={ <SupplierDue />} />
+          <Route path="supplier/due/invoice/:id" element={ <InvoiceSD />} />
+          <Route path="supplier/due/print/:id" element={ <PrintSD />} />
+
+          <Route path="customer" element={ <AllCustomer />} />
+          <Route path="customer/:id" element={ <ViewCustomer />} />
+          <Route path="customer/add" element={ <AddCustomer />} />
+          <Route path="customer/edit/:id" element={ <EdiCustomer />} />
+          <Route path="customer/return" element={ <CustomerReturnReport />} />
+          <Route path="customer/return/:id" element={ <CustomerReturn />} />
+          <Route path="customer/return/invoice/:id" element={ <InvoiceCI />} />
+          <Route path="customer/return/print/:id" element={ <PrintCI />} />
+          <Route path="customer/due" element={ <CustomerDueReport />} />
+          <Route path="customer/due/:id" element={ <CustomerDue />} />
+          <Route path="customer/due/invoice/:id" element={ <InvoiceCD />} />
+          <Route path="customer/due/print/:id" element={ <PrintCD />} />
+
+          <Route path="purchase" element={ <AllPurchase />} />
+          <Route path="purchase/add" element={ <PurchaseProduct />} />
+          <Route path="purchase/Invoice/:id" element={ <Invoice />} />
+          <Route path="purchase/print/:id" element={ <Print />} />
+
+          <Route path="sale" element={ <AllSale />} />
+          <Route path="sale/add" element={ <SaleProduct />} />
+          <Route path="sale/Invoice/:id" element={ <InvoiceS />} />
+          <Route path="sale/print/:id" element={ <PrintS />} />
+        </Route>
+
+
 
 
         <Route path="*" element={<Error />} />

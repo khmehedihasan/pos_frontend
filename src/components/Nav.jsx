@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import url from '../url';
 
 function Nav({setShow}){
 
     const [show1, setShow1] = useState('hidden');
     const [show2, setShow2] = useState({status:true});
-
+    const [cookies, setCookie, removeCookie] = useCookies(['auth']);
+    const navigate = useNavigate();
 
     function wait(){
         setTimeout(() => {
@@ -38,6 +41,16 @@ function Nav({setShow}){
             setClickedOutside(true);
         }
     };
+
+    function logOut(){
+
+        removeCookie('auth',[{expires: Date.now()}]);
+
+        fetch(`${url}/user/logout`,{method:'DELETE',mode:'cors',credentials:'include'}).then((data)=>data.json()).then((data)=>{
+            navigate('/logIn');
+        });
+
+    }
 
     
 
@@ -78,7 +91,7 @@ function Nav({setShow}){
                     <div className="">
                         <NavLink onClick={()=> setShow1('hidden')} className=" w-full py-2 pl-3 cursor-pointer hover:bg-yellow-400 hover:text-white block" to="/" ><i className="fa-solid fa-user"></i> My Profile</NavLink>
                         <NavLink onClick={()=> setShow1('hidden')} className=" w-full py-2 pl-3 cursor-pointer hover:bg-blue-400 hover:text-white block" to="/" ><i className="fa-solid fa-gear"></i> Settings</NavLink>
-                        <button className=" w-full py-2 pl-3 hover:bg-red-600 hover:text-white text-left"><i className="fa-solid fa-right-from-bracket"></i> Log Out</button>
+                        <button onClick={logOut} className=" w-full py-2 pl-3 hover:bg-red-600 hover:text-white text-left"><i className="fa-solid fa-right-from-bracket"></i> Log Out</button>
                     </div>
                 </div>
             </div>
